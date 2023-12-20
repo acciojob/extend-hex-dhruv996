@@ -1,7 +1,16 @@
-const extendHex = (shortHex) => {
-  // write your code here
-};
+function extendHex(shortHex) {
+  shortHex = shortHex.replace(/^#/, '');
 
-// Do not change the code below.
-const shortHex = prompt("Enter Short Hex.");
-alert(extendHex(shortHex));
+  const fullHex = shortHex
+    .split('')
+    .map(char => char.repeat(2))
+    .join('');
+
+  return `#${fullHex}`;
+}
+
+function extendHexCode() {
+  const shortHex = document.getElementById('shortHex').value;
+  const fullHex = extendHex(shortHex);
+  document.getElementById('result').innerText = `Extended Hex Code: ${fullHex}`;
+}
